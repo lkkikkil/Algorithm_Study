@@ -2,19 +2,21 @@
 
 using namespace std;
 
-int main() {
-	int result[12]{ 0, 1, 2, 4 };
-	for (int i = 4; i < 12; i++) {
-		result[i] = result[i - 1] + result[i - 2] + result[i - 3];
-	}
+int result(int _num) {
+	if (_num == 1) return 1;
+	else if (_num == 2) return 2;
+	else if (_num == 3) return 4;
+	else return result(_num - 1) + result(_num - 2) + result(_num - 3);
+}
 
+int main() {
 	int caseAmount;
 	cin >> caseAmount;
 	for (int caseCount = 0; caseCount < caseAmount; caseCount++) {
 		int num;
 		cin >> num;
 
-		cout << result[num] << "\n";
+		cout << result(num) << "\n";
 	}
 
 	return 0;
