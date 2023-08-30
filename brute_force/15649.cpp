@@ -3,7 +3,6 @@
 using namespace std;
 
 int n, m;
-int length;
 int visit[10];
 int myStack[10];
 
