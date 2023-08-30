@@ -5,10 +5,9 @@ using namespace std;
 
 int n, m;
 int num[10001];
-int visit[10001];
 int myStack[10];
 
-void myPrint(int startIndex,int length) {
+void myPrint(int startIndex, int length) {
 	if (length == m) {
 		for (int idx = 0; idx < m; idx++) {
 			cout << myStack[idx] << " ";
@@ -17,12 +16,8 @@ void myPrint(int startIndex,int length) {
 	}
 	else {
 		for (int numIndex = startIndex; numIndex < n; numIndex++) {
-			if (visit[numIndex] == 0) {
-				visit[numIndex] = 1;
-				myStack[length] = num[numIndex];
-				myPrint(numIndex + 1 ,length + 1);
-				visit[numIndex] = 0;
-			}
+			myStack[length] = num[numIndex];
+			myPrint(numIndex + 1, length + 1);
 		}
 	}
 }
