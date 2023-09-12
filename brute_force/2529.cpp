@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <string>
 #include <algorithm>
 
 using namespace std;
@@ -27,7 +27,9 @@ bool operCheck(char oper, char frontNum, char backNum) {
 
 void myMax(int length) {
 	if (length == operAmount + 1) {
-		maxNum = max(currentNum, maxNum);
+		if (stoll(currentNum) > stoll(maxNum)) {
+			maxNum = currentNum;
+		}
 	}
 	else {
 		for (int num = 9; num >= 0; num--) {
@@ -49,7 +51,9 @@ void myMax(int length) {
 
 void myMin(int length) {
 	if (length == operAmount + 1) {
-		minNum = min(currentNum, maxNum);
+		if (stoll(currentNum) < stoll(minNum)) {
+			minNum = currentNum;
+		}
 	}
 	else {
 		for (int num = 9; num >= 0; num--) {
